@@ -27,7 +27,6 @@ class ContactActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
 
-        // Toolbar setup
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -46,7 +45,7 @@ class ContactActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         toggle.drawerArrowDrawable.color = resources.getColor(android.R.color.black)
         navigationView.setNavigationItemSelectedListener(this)
 
-        // Make addresses clickable
+        //  addresses clickable
         makeParentsNotFocusable(findViewById(R.id.addressText1))
         makeParentsNotFocusable(findViewById(R.id.addressText2))
         makeParentsNotFocusable(findViewById(R.id.addressText3))
@@ -63,7 +62,6 @@ class ContactActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
             safeStartActivity(dialIntent)
         }
 
-        // ✅ Updated social media buttons (works on all phones)
         findViewById<ImageButton>(R.id.instagramIcon).setOnClickListener {
             openSocialLinkAppFirst(
                 appUri = "instagram://user?username=empowering_the_nation01",
@@ -96,7 +94,6 @@ class ContactActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         }
     }
 
-    // Address click opens maps
     private fun setLinkClickable(tv: TextView, location: String) {
         tv.isClickable = true
         tv.isFocusable = false
@@ -113,7 +110,6 @@ class ContactActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         safeStartActivity(intent)
     }
 
-    // ✅ Updated universal open method for social media
     private fun openSocialLinkAppFirst(appUri: String, webUrl: String) {
         try {
             val appIntent = Intent(Intent.ACTION_VIEW, Uri.parse(appUri))
