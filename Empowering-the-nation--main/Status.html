@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Status - Empowering the Nation</title>
+  <link rel="stylesheet" href="css/enrollment.css">
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-brand">
+        <span class="nav-emoji"><img src="media/EMPOWERING THE NATION.png" width="30" height="40"></span>
+        <span class="nav-title">Empowering the Nation</span>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="courses.html">Course</a></li>
+      <li><a href="aboutus.html">About Us</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="loginScr.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="max-w-3xl mx-auto px-6 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Check Enrollment Status</h1>
+    <p class="text-gray-600 mb-8">Enter your enrollment reference number or email address to check your status.</p>
+    
+    <!-- Status Search Form -->
+    <div class="card p-6 mb-8">
+      <form id="statusForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-2">Reference Number / Email *</label>
+          <input type="text" id="statusInput" class="input-field" placeholder="e.g. REF12345 or your@email.com" required>
+        </div>
+        <button type="submit" class="btn-primary w-full">Check Status</button>
+      </form>
+    </div>
+
+    <!-- Status Result -->
+    <div id="statusResult" class="hidden card p-6">
+      <h2 class="text-xl font-semibold mb-4">Enrollment Status</h2>
+      <p class="text-gray-700 mb-2"><strong>Name:</strong> <span id="statusName">John Doe</span></p>
+      <p class="text-gray-700 mb-2"><strong>Course:</strong> <span id="statusCourse">First Aid</span></p>
+      <p class="text-gray-700 mb-2"><strong>Status:</strong> <span id="statusMessage" class="text-green-600 font-bold">Approved ✅</span></p>
+    </div>
+
+    <!-- Back to Home -->
+    <div class="mt-8 text-center">
+      <a href="Home.html" class="btn-outline">← Back to Home</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('statusForm');
+    const resultBox = document.getElementById('statusResult');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // For demo purposes, just show a mock result
+      document.getElementById('statusName').textContent = "John Doe";
+      document.getElementById('statusCourse').textContent = "First Aid";
+      document.getElementById('statusMessage').textContent = "Approved ✅";
+      document.getElementById('statusMessage').classList.add('text-green-600');
+      
+      resultBox.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

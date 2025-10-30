@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Enrollment - Empowering the Nation</title>
+    <link rel="stylesheet" href="css/enrollment.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            50: '#fff7ed',
+                            100: '#ffedd5',
+                            200: '#fed7aa',
+                            300: '#fdba74',
+                            400: '#fb923c',
+                            500: '#f97316',
+                            600: '#ea580c',
+                            700: '#c2410c',
+                            800: '#9a3412',
+                            900: '#7c2d12'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+
+      
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-emoji"><img src="media/EMPOWERING THE NATION.png" width="30" height="40"></span>
+                <span class="nav-title">Empowering the Nation</span>
+            </div>    
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="courses.html">Course</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="location.html">Location</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="loginScr.html">Login</a></li> 
+        </ul>
+
+    </nav>
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <!-- Header -->
+        <div class="bg-white border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">Course Selection & Payment</h1>
+                <p class="text-gray-600">Select your courses and proceed to checkout</p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Course Selection -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Add Course Section -->
+                    <div class="card p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2">Add Courses to Cart</h2>
+                        <p class="text-gray-600 mb-4">Choose from our professional development courses. Save with bundle discounts!</p>
+                        
+                        <div class="flex gap-4">
+                            <select id="courseSelect" class="input-field flex-1">
+                                <option value="">Select a course to add</option>
+                            </select>
+                            <button id="addToCartBtn" class="btn-primary flex items-center" disabled>
+                                <span class="mr-2">+</span>
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Available Courses Grid -->
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Available Courses</h3>
+                        <div id="coursesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <!-- Courses will be populated here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Cart -->
+                <div>
+                    <div class="card sticky top-4">
+                        <div class="p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                                <span class="mr-2">🛒</span>
+                                Shopping Cart (<span id="cartCount">0</span>)
+                            </h2>
+                            
+                            <div id="cartItems" class="space-y-4">
+                                <p class="text-gray-500 text-center py-8">Your cart is empty</p>
+                            </div>
+                            
+                            <div id="cartSummary" class="hidden">
+                                <hr class="my-4">
+                                
+                                <!-- Discount Alert -->
+                                <div id="discountAlert" class="hidden bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
+                                    <p class="text-green-800 text-sm">
+                                        🎉 <span id="discountText">Bundle Discount Applied!</span>
+                                    </p>
+                                </div>
+                                
+                                <!-- Pricing -->
+                                <div class="space-y-2">
+                                    <div class="flex justify-between">
+                                        <span>Subtotal:</span>
+                                        <span id="subtotal">R0.00</span>
+                                    </div>
+                                    <div id="discountRow" class="hidden flex justify-between text-green-600">
+                                        <span>Discount:</span>
+                                        <span id="discountAmount">-R0.00</span>
+                                    </div>
+                                    <hr class="my-2">
+                                    <div class="flex justify-between text-lg font-semibold">
+                                        <span>Total:</span>
+                                        <span id="total">R0.00</span>
+                                    </div>
+                                </div>
+                                
+                                <button id="checkoutBtn" class="w-full btn-primary mt-4">
+                                    Proceed to Checkout
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Form (Hidden) -->
+    <div id="checkoutContent" class="hidden">
+        <!-- Header -->
+        <div class="bg-white border-b">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="flex items-center">
+                    <button id="backToCartBtn" class="btn-outline mr-4">← Back to Cart</button>
+                    <div>
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">Checkout</h1>
+                        <p class="text-gray-600">Complete your course enrollment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Checkout Form -->
+                <div>
+                    <form id="checkoutForm" class="space-y-6">
+                        <!-- Billing Information -->
+                        <div class="card p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Billing Information</h2>
+                            <div class="space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
+                                        <input type="text" id="firstName" class="input-field" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
+                                        <input type="text" id="lastName" class="input-field" required>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
+                                    <input type="email" id="email" class="input-field" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Phone Number *</label>
+                                    <input type="tel" id="phone" class="input-field" required>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Address *</label>
+                                    <input type="text" id="address" class="input-field" required>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">City *</label>
+                                        <input type="text" id="city" class="input-field" required>
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">ZIP Code *</label>
+                                        <input type="text" id="zipCode" class="input-field" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method -->
+                        <div class="card p-6">
+                            <h2 class="text-xl font-semibold text-gray-900 mb-4">Payment Method</h2>
+                            <div class="space-y-4">
+                                <select id="paymentMethod" class="input-field">
+                                    <option value="">Select payment method</option>
+                                    <option value="credit-card">Credit Card</option>
+                                    <option value="debit-card">Debit Card</option>
+                                    <option value="paypal">PayPal</option>
+                                </select>
+
+                                <div id="cardFields" class="hidden space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Card Number *</label>
+                                        <input type="text" id="cardNumber" class="input-field" placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">Expiry Date *</label>
+                                            <input type="text" id="expiryDate" class="input-field" placeholder="MM/YY">
+                                        </div>
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-700 mb-2">CVV *</label>
+                                            <input type="text" id="cvv" class="input-field" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="completePaymentBtn" class="w-full btn-primary flex items-center justify-center" disabled>
+                            <span class="mr-2">💳</span>
+                            Complete Payment - R<span id="checkoutTotal">0.00</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div>
+                    <div class="card p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Order Summary</h2>
+                        <div id="checkoutSummary" class="space-y-4">
+                            <!-- Order items will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="text-green-600 text-6xl mb-4">✅</div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Enrollment Successful!</h2>
+                <p class="text-gray-600 mb-6">Your course enrollment has been completed successfully. You will receive a confirmation email shortly.</p>
+                <div class="space-y-3">
+                  <button id="viewStatusBtn" class="w-full btn-primary" onclick="window.location.href='status.html'">
+                        View Application Status
+                    </button>
+                    <button id="backToHomeBtn" class="w-full btn-outline">Back to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Course data
+        const courses = [
+            {
+                id: 1,
+                title: "First Aid",
+                description: "To provide first aid awareness and basic life support.",
+                duration: "6 Month",
+                level: "intermediate",
+                price: 1700,
+                image: "https://th.bing.com/th/id/R.400382039bbb51eb9a03893546135ae6?rik=nak3%2fXxITtLKeQ&pid=ImgRaw&r=0w=200&h=300&fit=crop",
+                features: ["Wounds and bleeding", "burns and fractures",]
+            },
+            {
+                id: 2,
+                title: "sewing",
+                description: "To provide alterations and new garment tailoring service.",
+                duration: "6 Months",
+                level: "Intermediate",
+                price: 1500,
+                image: "https://tse4.mm.bing.net/th/id/OIP.0r5758-0hYAE8YxE8FL3TQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3",
+                features: ["Types of stitches", "threading a sewing mmachine",]
+            },
+            {
+                id: 3,
+                title: "Landscaping",
+                description: "To provide landscaping service for new and established gardens",
+                duration: "6 month",
+                level: "Intermediate",
+                price: 1500,
+                image: "https://th.bing.com/th/id/OIP.uNyEduscBrGcwj9yZd8aVwHaFE?w=265&h=181&c=7&r=0&o=7&pid=1.7&rm=3w=300&h=300&fit=crop",
+                features: ["Plant identification", "Landscape design", "Irrigation systems", "Organic farming"]
+            },
+            {
+                id: 4,
+                title: "Life Skills",
+                description: "To provide skills to navigate basoc life necessities",
+                duration: "6 Month",
+                level: "Advanced",
+                price: 1500,
+                image: "https://th.bing.com/th/id/OIP.9Sk_95nW5x8KuJRybn491gHaFG?w=279&h=192&c=7&r=0&o=5&pid=1.7w=300&h=300&fit=crop",
+                features: ["Opening banking accounts","basic numeric literacy"]
+            },
+
+            {
+                id: 5,
+                title: "Child Minding",
+                description: "To Provide basic child and baby care.",
+                duration: "6 weeks",
+                level: "Beginner",
+                price: 750,
+                image: "https://th.bing.com/th/id/OIP.f8aIG6s5HrKBbJMoRIX9TAHaDq?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3w=300&h=300&fit=crop",
+                features: [""]
+            },
+            {
+                id: 6,
+                title: "Cooking",
+                description: "To prepare and cook nutritions family meals.",
+                duration: "6 weeks",
+                level: "Midd",
+                price: 750,
+                image: "https://th.bing.com/th/id/OIP.z10FfgdB4fw-JLRxuwr6JAHaEK?w=295&h=180&c=7&r=0&o=7&pid=1.7&rm=3w=300&h=300&fit=crop" ,
+                features: ["Culinary techniques", "Nutrition planning", "Food safety", "Menu development"]
+            }
+        
+        ];
+
+        // State
+        let cart = [];
+        let isCheckoutMode = false;
+
+        // DOM elements
+        const courseSelect = document.getElementById('courseSelect');
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const coursesGrid = document.getElementById('coursesGrid');
+        const cartItems = document.getElementById('cartItems');
+        const cartCount = document.getElementById('cartCount');
+        const cartSummary = document.getElementById('cartSummary');
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        const mainContent = document.getElementById('mainContent');
+        const checkoutContent = document.getElementById('checkoutContent');
+        const backToCartBtn = document.getElementById('backToCartBtn');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const paymentMethod = document.getElementById('paymentMethod');
+        const cardFields = document.getElementById('cardFields');
+        const completePaymentBtn = document.getElementById('completePaymentBtn');
+        const successModal = document.getElementById('successModal');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        // Initialize
+        function init() {
+            populateCourseSelect();
+            renderCoursesGrid();
+            setupEventListeners();
+            updateCart();
+        }
+
+        // Populate course select dropdown
+        function populateCourseSelect() {
+            courses.forEach(course => {
+                const option = document.createElement('option');
+                option.value = course.id;
+                option.textContent = `${course.title} - R${course.price}`;
+                courseSelect.appendChild(option);
+            });
+        }
+
+        // Render courses grid
+        function renderCoursesGrid() {
+            coursesGrid.innerHTML = courses.map(course => `
+                <div class="card hover:shadow-lg transition-shadow">
+                    <div class="relative">
+                        <img src="${course.image}" alt="${course.title}" class="w-full h-32 object-cover rounded-t-lg">
+                        <span class="badge badge-primary absolute top-2 right-2">R${course.price}</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-gray-900 mb-2">${course.title}</h3>
+                        <div class="flex gap-2 mb-3">
+                            <span class="badge badge-outline">${course.level}</span>
+                            <span class="badge badge-outline">${course.duration}</span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3">${course.description}</p>
+                        <button onclick="addToCart(${course.id})" class="w-full btn-primary">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            courseSelect.addEventListener('change', () => {
+                addToCartBtn.disabled = !courseSelect.value;
+            });
+
+            addToCartBtn.addEventListener('click', () => {
+                if (courseSelect.value) {
+                    addToCart(parseInt(courseSelect.value));
+                    courseSelect.value = '';
+                    addToCartBtn.disabled = true;
+                }
+            });
+
+            checkoutBtn.addEventListener('click', showCheckout);
+            backToCartBtn.addEventListener('click', showCart);
+            
+            paymentMethod.addEventListener('change', () => {
+                const isCardPayment = paymentMethod.value.includes('card');
+                cardFields.style.display = isCardPayment ? 'block' : 'none';
+                updateCheckoutButton();
+            });
+
+            checkoutForm.addEventListener('submit', handlePaymentSubmit);
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Check status buttons
+            document.getElementById('checkStatusBtn').addEventListener('click', () => {
+                alert('Status checking feature would redirect to status page');
+            });
+            document.getElementById('checkStatusBtnMobile').addEventListener('click', () => {
+                alert('Status checking feature would redirect to status page');
+            });
+
+            document.getElementById('viewStatusBtn').addEventListener('click', () => {
+                alert('Redirecting to application status page...');
+            });
+
+            document.getElementById('backToHomeBtn').addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+        }
+
+        // Add course to cart
+        function addToCart(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            if (!course) return;
+
+            const existingItem = cart.find(item => item.course.id === courseId);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ course, quantity: 1 });
+            }
+            updateCart();
+        }
+
+        // Remove from cart
+        function removeFromCart(courseId) {
+            cart = cart.filter(item => item.course.id !== courseId);
+            updateCart();
+        }
+
+        // Update quantity
+        function updateQuantity(courseId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(courseId);
+                return;
+            }
+            const item = cart.find(item => item.course.id === courseId);
+            if (item) {
+                item.quantity = newQuantity;
+                updateCart();
+            }
+        }
+
+        // Calculate totals
+        function getTotalPrice() {
+            return cart.reduce((total, item) => total + (item.course.price * item.quantity), 0);
+        }
+
+        function getDiscountedPrice() {
+            const total = getTotalPrice();
+            const discount = cart.length >= 3 ? 0.15 : cart.length >= 2 ? 0.1 : 0;
+            return total * (1 - discount);
+        }
+
+        function getDiscountAmount() {
+            return getTotalPrice() - getDiscountedPrice();
+        }
+
+        // Update cart display
+        function updateCart() {
+            cartCount.textContent = cart.length;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p class="text-gray-500 text-center py-8">Your cart is empty</p>';
+                cartSummary.classList.add('hidden');
+                return;
+            }
+
+            cartItems.innerHTML = cart.map(item => `
+                <div class="border rounded-lg p-3 cart-item">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-sm font-medium">${item.course.title}</h4>
+                        <button onclick="removeFromCart(${item.course.id})" class="text-red-600 hover:text-red-700">
+                            🗑️
+                        </button>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2 quantity-controls">
+                            <button onclick="updateQuantity(${item.course.id}, ${item.quantity - 1})">-</button>
+                            <span class="w-8 text-center text-sm">${item.quantity}</span>
+                            <button onclick="updateQuantity(${item.course.id}, ${item.quantity + 1})">+</button>
+                        </div>
+                        <p class="text-sm font-medium">R${(item.course.price * item.quantity).toFixed(2)}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Show discount alert
+            const discountAlert = document.getElementById('discountAlert');
+            const discountText = document.getElementById('discountText');
+            if (cart.length >= 2) {
+                discountAlert.classList.remove('hidden');
+                discountText.textContent = `Bundle Discount Applied! ${cart.length >= 3 ? '15% off' : '10% off'} for multiple courses.`;
+            } else {
+                discountAlert.classList.add('hidden');
+            }
+
+            // Update pricing
+            const subtotal = getTotalPrice();
+            const discountAmount = getDiscountAmount();
+            const total = getDiscountedPrice();
+
+            document.getElementById('subtotal').textContent = `R${subtotal.toFixed(2)}`;
+            document.getElementById('total').textContent = `R${total.toFixed(2)}`;
+
+            if (discountAmount > 0) {
+                document.getElementById('discountRow').classList.remove('hidden');
+                document.getElementById('discountAmount').textContent = `-R${discountAmount.toFixed(2)}`;
+            } else {
+                document.getElementById('discountRow').classList.add('hidden');
+            }
+
+            cartSummary.classList.remove('hidden');
+        }
+
+        // Show checkout
+        function showCheckout() {
+            isCheckoutMode = true;
+            mainContent.classList.add('hidden');
+            checkoutContent.classList.remove('hidden');
+            
+            // Update checkout summary
+            const checkoutSummary = document.getElementById('checkoutSummary');
+            checkoutSummary.innerHTML = cart.map(item => `
+                <div class="flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-medium">${item.course.title}</p>
+                        <p class="text-xs text-gray-600">Qty: ${item.quantity}</p>
+                    </div>
+                    <p class="text-sm">R${(item.course.price * item.quantity).toFixed(2)}</p>
+                </div>
+            `).join('') + `
+                <hr class="my-4">
+                <div class="space-y-2">
+                    <div class="flex justify-between">
+                        <p>Subtotal:</p>
+                        <p>R${getTotalPrice().toFixed(2)}</p>
+                    </div>
+                    ${getDiscountAmount() > 0 ? `
+                    <div class="flex justify-between text-green-600">
+                        <p>Bundle Discount:</p>
+                        <p>-R${getDiscountAmount().toFixed(2)}</p>
+                    </div>` : ''}
+                    <hr class="my-2">
+                    <div class="flex justify-between text-lg font-semibold">
+                        <p>Total:</p>
+                        <p>R${getDiscountedPrice().toFixed(2)}</p>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('checkoutTotal').textContent = getDiscountedPrice().toFixed(2);
+        }
+
+        // Show cart
+        function showCart() {
+            isCheckoutMode = false;
+            mainContent.classList.remove('hidden');
+            checkoutContent.classList.add('hidden');
+        }
+
+        // Update checkout button state
+        function updateCheckoutButton() {
+            const isFormValid = paymentMethod.value && 
+                document.getElementById('firstName').value &&
+                document.getElementById('lastName').value &&
+                document.getElementById('email').value &&
+                document.getElementById('phone').value &&
+                document.getElementById('address').value &&
+                document.getElementById('city').value &&
+                document.getElementById('zipCode').value;
+
+            const isCardValid = !paymentMethod.value.includes('card') || 
+                (document.getElementById('cardNumber').value &&
+                 document.getElementById('expiryDate').value &&
+                 document.getElementById('cvv').value);
+
+            completePaymentBtn.disabled = !(isFormValid && isCardValid);
+        }
+
+        // Handle payment form submission
+        function handlePaymentSubmit(e) {
+            e.preventDefault();
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                successModal.classList.remove('hidden');
+                cart = [];
+                updateCart();
+            }, 1000);
+        }
+
+        // Add input event listeners for form validation
+        function addFormValidation() {
+            const formInputs = checkoutForm.querySelectorAll('input, select');
+            formInputs.forEach(input => {
+                input.addEventListener('input', updateCheckoutButton);
+            });
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+            setTimeout(addFormValidation, 100); // Delay to ensure form is rendered
+        });
+    </script>
+</body>
+</html>
