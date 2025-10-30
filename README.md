@@ -3,10 +3,8 @@ Empowering the Nation - Mobile App and Website
 
 Group Name: WNV Training Academy
 
-Group Members:Warona Makoe(Member)
-
-              Neo Mapatha(Leader)
-              
+Group Members:Warona Makoe(Member),
+              Neo Mapatha(Leader),
               Vutlhari Mashali(Secretary)
               
 Module:Work Intergrated Learning(XHAW5112)
