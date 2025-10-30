@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Main content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Toolbar -->
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/orange"
+                app:title ="Payment"
+                android:titleTextColor="@android:color/white"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+            <!-- Top curved header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/curved_background"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvGetQuote"
+                    android:layout_width="wrap_content"
+                    android:layout_height="150dp"
+                    android:text="Get a Quote"
+                    android:textSize="28sp"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <!-- Payment details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:textColorHint="@color/black"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:text="Selected courses will appear here"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/black"
+                    android:text="Totals"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnGetQuote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/orange"
+                    android:text="Get Quote via Email"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnPayNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/orange"
+                    android:text="Pay Now"
+                    android:textColor="@android:color/white"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Payment Form Container -->
+                <LinearLayout
+                    android:id="@+id/paymentFormContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:paddingTop="20dp">
+
+                    <TextView
+                        android:id="@+id/paymentFormTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Payment Details"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:paddingBottom="10dp" />
+
+                    <!-- Card Payment Form -->
+                    <LinearLayout
+                        android:id="@+id/cardPaymentForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/etCardNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Card Number"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/etExpiryDate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Expiry Date (MM/YY)"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:inputType="text" />
+
+                        <EditText
+                            android:id="@+id/etCVV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="CVV"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:inputType="numberPassword" />
+
+                        <EditText
+                            android:id="@+id/etCardHolder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Cardholder Name"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:inputType="textPersonName" />
+                    </LinearLayout>
+
+                    <!-- EFT Payment Form -->
+                    <LinearLayout
+                        android:id="@+id/eftPaymentForm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <EditText
+                            android:id="@+id/etBankName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:hint="Bank Name"
+                            android:inputType="text" />
+
+                        <EditText
+                            android:id="@+id/etAccountNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:hint="Account Number"
+                            android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/etAccountHolder"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Account Holder Name"
+                            android:textColor="@color/black"
+                            android:textColorHint="@color/black"
+                            android:inputType="textPersonName" />
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/btnSubmitPayment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/orange"
+                        android:textColor="@color/white"
+                        android:text="Submit Payment" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/nextButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/orange"
+                    android:textColor="@color/white"
+                    android:text="Next"
+                    android:layout_marginTop="16dp" />
+
+                <Button
+                    android:id="@+id/backButton"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/white"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/orange"
+                    android:text="Back" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        android:background="@android:color/white" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
