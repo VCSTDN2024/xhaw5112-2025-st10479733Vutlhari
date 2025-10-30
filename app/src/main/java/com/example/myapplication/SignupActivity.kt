@@ -22,7 +22,6 @@ class SignupActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 👇🏽 Add this line to make the screen recordable
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
         setContentView(R.layout.activity_signup)
