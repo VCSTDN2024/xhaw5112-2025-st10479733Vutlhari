@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.WindowManager // 👈🏽 add this import
+import android.view.WindowManager
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -42,14 +42,11 @@ class PaymentActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 👇🏽 Add this line to make screen recording work
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment)
 
-        // --- Navigation Drawer Setup ---
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
         toolbar.navigationIcon?.setTint(resources.getColor(android.R.color.black))
@@ -69,7 +66,6 @@ class PaymentActivity : AppCompatActivity(), NavigationView.OnNavigationItemSele
         toggle.drawerArrowDrawable.color = resources.getColor(android.R.color.black)
         navigationView.setNavigationItemSelectedListener(this)
 
-        // --- Payment Logic ---
         val tvSummary = findViewById<TextView>(R.id.tvSummary)
         val tvTotal = findViewById<TextView>(R.id.tvTotal)
         val btnGetQuote = findViewById<Button>(R.id.btnGetQuote)
