@@ -45,6 +45,7 @@ Web technologies (React, HTML, CSS) for website development.
 Payment API integration for secure transactions.
 Google Maps links for venue location display.
 
+
 Screenshots of the mobile app 
 
 <img width="499" height="858" alt="Screenshot 2025-10-30 200952" src="https://github.com/user-attachments/assets/db208914-9878-4eec-96bd-eab9e75c7a4a" />
@@ -62,6 +63,8 @@ Screenshots of the mobile app
 <img width="479" height="865" alt="Screenshot 2025-10-30 201232" src="https://github.com/user-attachments/assets/7a412e76-3ebd-48d6-8300-9a39056e47ff" />
 
 <img width="477" height="853" alt="Screenshot 2025-10-30 201250" src="https://github.com/user-attachments/assets/94546f21-1bf8-45c2-a50d-44ac27888690" />
+
+
 
 
 
