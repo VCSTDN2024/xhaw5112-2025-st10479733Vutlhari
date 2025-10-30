@@ -19,7 +19,6 @@ class LoginActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // 👇🏽 Add this line to allow screen recording
         window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
 
         setContentView(R.layout.activity_login)
