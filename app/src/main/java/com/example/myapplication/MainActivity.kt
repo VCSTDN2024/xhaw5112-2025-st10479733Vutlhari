@@ -40,8 +40,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         toggle.drawerArrowDrawable.color = resources.getColor(android.R.color.black)
-        // REMOVE the back arrow line so we get the hamburger icon
-        // supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         navigationView.setNavigationItemSelectedListener(this)
 
