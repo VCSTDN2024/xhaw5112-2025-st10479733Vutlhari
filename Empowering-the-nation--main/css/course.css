@@ -1,0 +1,230 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background: #fff8f0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    background: linear-gradient(90deg, #ff7a00, #ff5500);
+    padding: 1rem 2rem;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #ffe0c2;
+    text-decoration: underline;
+}
+
+/* Courses Header */
+.courses-header {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(180deg, #ff7a00, #ff5500);
+    color: white;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 2rem;
+}
+
+.courses-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.courses-header p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+/* Courses Grid */
+.courses-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 2rem;
+}
+
+/* Course Card */
+.course-card {
+    background: white;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+}
+
+.course-image {
+    position: relative;
+}
+
+.course-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.course-price {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff7a00;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.course-content {
+    padding: 1.5rem;
+}
+
+.course-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.course-header h3 {
+    color: #ff5500;
+}
+
+.course-level {
+    background: #ff7a00;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+}
+
+.course-details {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+.course-features {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.enroll-button a,
+.dropbtn {
+    display: inline-block;
+    margin-top: 10px;
+    background: #ff7a00;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.enroll-button a:hover,
+.dropbtn:hover {
+    background: #ff5500;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 120px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.enroll-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.dropdown-content a:hover {
+    background: #ff7a00;
+    color: white;
+}
+
+/* Courses Info Card */
+.courses-info-card {
+    background: #fff4e6;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    background: #0f0f0f;
+    color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+footer h3, footer h4 {
+    color: #ff7a00;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #555;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #fdfcfc;  /* default color */
+    font-size: 24px; /* icon size */
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ff5500; /* hover color */
+}

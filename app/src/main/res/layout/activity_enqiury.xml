@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EnquiryActivity">
+
+  <!-- Main Content -->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:background="@color/white">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/orange"
+        app:title="Enquiry"
+        android:titleTextColor="@android:color/white" />
+
+    <!-- Scrollable Form -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:fillViewport="true">
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Course Enquiry Form"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/orange"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+
+        <!-- Name -->
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textPersonName" />
+
+        <!-- Email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email Address"
+            android:textColorHint="@color/black"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"
+            android:inputType="textEmailAddress" />
+
+        <!-- Phone -->
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:inputType="phone" />
+
+        <!-- Course Selection -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select One or More Courses"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/black" />
+
+        <!-- Scrollable Course List -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="16dp">
+
+          <LinearLayout
+              android:id="@+id/courseContainer"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+            <CheckBox android:id="@+id/cbFirstAid" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="First Aid - R1500" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbSewing" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Sewing - R1500" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbLandscaping" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Landscaping - R1500" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbLifeSkills" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Life Skills - R1500" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbChildMinding" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Child Minding - R750" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbCooking" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Cooking - R750" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+            <CheckBox android:id="@+id/cbGarden" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Garden Maintenance - R750" android:buttonTint="@color/orange" android:textColor="@color/black" android:textStyle="bold" android:padding="8dp" />
+          </LinearLayout>
+        </ScrollView>
+
+        <!-- Message -->
+        <EditText
+            android:id="@+id/etMessage"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:hint="Your Enquiry or Message"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
+            android:gravity="top"
+            android:background="@drawable/edittext_background"
+            android:padding="12dp"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit Enquiry"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp" />
+
+      </LinearLayout>
+    </ScrollView>
+
+  </LinearLayout>
+
+  <!-- Navigation Drawer -->
+  <com.google.android.material.navigation.NavigationView
+      android:id="@+id/navigation_view"
+      android:layout_width="280dp"
+      android:layout_height="match_parent"
+      android:layout_gravity="start"
+      android:background="@android:color/white"
+      app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
